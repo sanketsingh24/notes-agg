@@ -1,0 +1,28 @@
+.onebit {
+  background-color: #fbfbfb;
+  margin: 20px 20px 20px 20px;
+  width: 200px;
+  height: 200px;
+  border-style: groove;
+  border-width: 2px;
+  border-color: #cecece;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #cecece;
+}
+
+.pro {
+  display: flex;
+  margin-left: 40px;
+  flex-wrap: wrap;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  margin: 10px 50px 10px 50px;
+}
+
+.texts {
+  font-size: 1.25em;
+  text-align: center;
+}

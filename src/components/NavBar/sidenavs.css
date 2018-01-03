@@ -1,0 +1,98 @@
+
+.mySidenav {
+  width: 50px;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+    background-color: #2c3437;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 0.1s;
+}
+
+.mySidenav nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 425px;
+    background-color: #2c3437;
+  overflow: hidden;
+}
+
+
+.mySidenav a {
+    display: block;
+    color: #73c2fb;
+    margin: 0;
+    text-decoration: none;
+    font-size: 24px;
+    transition: 0.3s;
+    max-width: 425px;
+    height: 50px;
+}
+
+.mySidenav a i {
+  padding-top: 13px;
+  padding-left: 13px;
+    padding-right: 13px;
+    width: 24px;
+  float: left;
+}
+
+.mySidenav a:hover {
+    background-color: black;
+    color: white;
+}
+
+.mySidenav .nav-panel-desc {
+  margin: 0;
+  width: 300px;
+  margin-top: 7px;
+  height: 30px;
+}
+
+.hamburger {
+  height: 42px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 13px;
+  display: inline-block;
+  cursor: pointer;
+  width: 399px;
+}
+
+.hamburger:hover{
+  background-color: black;
+}
+
+.hamburger:hover div {
+  background-color: white;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 24px;
+  height: 2px;
+    background-color: #73c2fb;
+    margin: 6px 0;
+    transition-duration: 0.15s;
+  transition-timing-function: linear;
+}
+
+.change .bar1 {
+    transform: translate3d(-6px, 3px, 0) rotate(-45deg) scale(0.6, 1);
+}
+
+.change .bar3 {
+    transform: translate3d(-6px, -3px, 0) rotate(45deg) scale(0.6, 1);
+}
+
+.change {
+  background-color: black;
+}
+
+.change div {
+  background-color: white;
+}
