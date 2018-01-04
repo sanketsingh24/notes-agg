@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './dialogbo.css';
+import '../../../css/dialogbo.css';
 
 import { Link } from 'react-router-dom';
 

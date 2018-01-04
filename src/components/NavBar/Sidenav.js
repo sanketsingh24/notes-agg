@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Menu from './Menu';
 import Panel from './Panel';
-import './sidenavs.css'
+import '../../../css/sidenavs.css'
 
 class Sidenav extends Component {
 	render () {

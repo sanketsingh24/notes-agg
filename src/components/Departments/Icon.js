@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Dialog from './Dialogbox';
-import './icons.css';
+import '../../../css/icons.css';
 
 //import images
 import depart from '../../data/departments';

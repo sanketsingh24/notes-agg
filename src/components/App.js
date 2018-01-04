@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
-import Board from './components/Board';
-import Sidenav from './components/NavBar/Sidenav';
-import Courses from './components/courses/courses';
+import Board from './Board';
+import Sidenav from './NavBar/Sidenav';
+import Courses from './courses/courses';
 
 
 import { Link } from 'react-router-dom';
 
 
 // css
-import './App.css';
+import '../../css/App.css';
 
 class App extends Component {
   render() {
