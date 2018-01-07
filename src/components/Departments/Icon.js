@@ -5,14 +5,13 @@ import Header from '../Header/Header';
 import '../../../css/icons.css';
 
 //import images
-import depart from '../../data/departments';
 
 
 export default class Icon extends Component {
 	constructor (props) {
 	    super(props);
 	    this.state = {
-				img : depart,
+				img : [],
 				pageHeader: 'Departments'
 			 };
       this.look=this.look.bind(this);

@@ -11,6 +11,10 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
       test: /\.css$/,
       include: /node_modules/,
       loaders: ['style-loader', 'css-loader'],
