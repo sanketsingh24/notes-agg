@@ -2,11 +2,17 @@ import React, {Component} from 'react';
 import '../../../css/coursess.css'
 
 export default class Courses extends Component {
-
+  constructor (props) {
+      super(props);
+      this.state = {
+        pageHeader: 'Departments'
+       };
+    }
+    
   render() {
     return (
       <div className="courses">
-        <h1>Courses</h1>
+      <Header message={this.state.pageHeader} />
         <nav>
           <ul>
               <li><a href="#nowhere">GLC13101</a>

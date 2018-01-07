@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Dialog from './Dialogbox';
+import Header from '../Header/Header';
+
 import '../../../css/icons.css';
 
 //import images
@@ -9,7 +11,10 @@ import depart from '../../data/departments';
 export default class Icon extends Component {
 	constructor (props) {
 	    super(props);
-	    this.state = { img : depart };
+	    this.state = {
+				img : depart,
+				pageHeader: 'Departments'
+			 };
       this.look=this.look.bind(this);
 		}
 
@@ -51,7 +56,7 @@ export default class Icon extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Departments</h1>
+				<Header message={this.state.pageHeader} />
 				<div className="pro" >
 					{this.state.img.map(this.look)}
 				</div>
