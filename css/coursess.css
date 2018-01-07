@@ -9,3 +9,15 @@
 .courses {
   margin-left: 20px;
 }
+
+.courses ul a +ul {
+  max-height:0;
+  overflow:hidden;
+  transition:0.5s linear;
+  }
+.courses ul a:focus + ul {
+  max-height:15em;
+  }
+.courses a:focus {
+  pointer-events:none;
+  }
