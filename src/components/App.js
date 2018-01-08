@@ -8,7 +8,7 @@ import '../../css/App.css';
 
 class App extends Component {
   state = {
-    courses: []
+    courses: this.props.initialData
   };
 
   componentDidMount() {

@@ -10,6 +10,12 @@
   box-shadow: 0 2px 2px #cecece;
 }
 
+.onebit:hover {
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 2px 4px 4px darkgrey;
+}
+
 .pro {
   display: flex;
   margin-left: 40px;

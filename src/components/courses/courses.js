@@ -8,7 +8,7 @@ export default class Courses extends Component {
         pageHeader: 'Departments'
        };
     }
-    
+
   render() {
     return (
       <div className="courses">
