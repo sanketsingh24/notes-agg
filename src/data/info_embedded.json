@@ -3,6 +3,7 @@
   {
     "dept_name" : "Applied Geology",
     "dept_id" : "GLC",
+    "id" : 1,
     "imge": "img/AGL.png",
     "sem_no": {
       "Three" : [
@@ -94,6 +95,7 @@
   {
     "dept_name" : "Computer Science and Engineering",
     "dept_id" : "CSE",
+    "id" : 2,
     "imge" :"img/CSE.png",
     "sem_no": {
       "Three" : [

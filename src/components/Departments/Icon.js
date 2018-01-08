@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Dialog from './Dialogbox';
+import Onebit from './Onebit';
 import Header from '../Header/Header';
 
 import '../../../css/icons.css';
@@ -11,53 +11,26 @@ export default class Icon extends Component {
 	constructor (props) {
 	    super(props);
 	    this.state = {
-				img : [],
+				data : this.props.alldata ,
 				pageHeader: 'Departments'
 			 };
-      this.look=this.look.bind(this);
 		}
 
-	look (imgdes, i) {
-		let text = imgdes.dept_name;
-		let imgw = imgdes.imge;
-		let sems = imgdes.sem_no;
-		let test = false;
-		const openDialog=()=> {
-						console.log(i+" open");
-			    	document.getElementById(i).style.height = "100%";
-	  }
-
-		const closeDialog=()=> {
-						console.log(i+" close");
-						document.getElementById(i).style.height = "0px";
-		}
-		const Click=()=> {
-			if (test) {
-				test=false;
-				closeDialog();
-			} else {
-				test=true;
-				openDialog();
-			}
-		}
-
-		return (
-				<div key={i} onClick={Click}>
-					<div className = "onebit" >
-						<img id="image" className = "image" src= {imgw} alt={text} />
-						<p id="texts" className = "texts" >{text}</p>
-					</div>
-					<Dialog number={sems} index={i} />
-				</div>
-			);
-		}
+	componentWillReceiveProps(nextprops) {
+		console.log(nextprops.alldata.courses);
+			this.setState({
+				data : nextprops.alldata.courses
+			})
+	}
 
 	render () {
 		return (
 			<div>
 				<Header message={this.state.pageHeader} />
 				<div className="pro" >
-					{this.state.img.map(this.look)}
+					{this.state.data.map(data =>
+						<Onebit key={data.id} image={data.imge} description={data.dept_name} />
+					)}
 				</div>
 			</div>
 		);

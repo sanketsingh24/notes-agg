@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // Components
-import Board from './Board';
+import Icon from './Departments/Icon';
 import Sidenav from './NavBar/Sidenav';
 // css
 import '../../css/App.css';
 
 class App extends Component {
   state = {
-    data: []
+    courses: []
   };
+
   componentDidMount() {
     axios.get('/api/info')
       .then(resp => {
-        console.log(resp);
-      })
+          this.setState({
+            courses: resp.data
+          });
+        })
       .catch(console.error)
-
-/**    this.setState({
-      courses: data.courses
-    });*/
   }
+
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Sidenav />
-        <Board />
+        <div id="container">
+          <div className="board">
+            <Icon alldata={this.state.courses} />
+          </div>
+        </div>
       </div>
     );
   }
