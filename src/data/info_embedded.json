@@ -5,11 +5,12 @@
     "dept_id" : "GLC",
     "id" : 1,
     "imge": "img/AGL.png",
-    "sem_no": {
-      "Three" : [
-        {
+    "total_sems" : ["Three","Four","Five","Six","Seven","Eight","Nine","Ten"],
+    "subjects": [
+      {
           "course_name" : "Metamhorphic ptani",
           "course_id" : "13105",
+          "sem_no" : 3,
           "books" : [
             {
               "name" : "Metamhorphic Rocks and Processes",
@@ -43,12 +44,11 @@
               "rating" : "8/10"
             }
           ]
-        }
-      ],
-      "Four" : [
-        {
+        },
+      {
           "course_name" : "Igneous Petrology",
           "course_id" : "14104",
+          "sem_no" : 4,
           "books" : [
             {
               "name" : "Igneous Rocks and Processes",
@@ -83,25 +83,19 @@
             }
           ]
         }
-      ],
-      "Five" : [],
-      "Six" : [],
-      "Seven" : [],
-      "Eight" : [],
-      "Nine" : [],
-      "Ten" : []
-    }
+      ]
   },
   {
     "dept_name" : "Computer Science and Engineering",
     "dept_id" : "CSE",
     "id" : 2,
     "imge" :"img/CSE.png",
-    "sem_no": {
-      "Three" : [
+    "total_sems" : ["Three","Four","Five","Six","Seven","Eight"],
+    "subjects": [
         {
           "course_name" : "Data Structures",
           "course_id" : "13101",
+          "sem_no" : 3,
           "books" : [
             {
               "name" : "Introduction to Algorithms",
@@ -132,13 +126,11 @@
               "rating" : "10/10"
             }
           ]
-        }
-      ],
-      "Four" : [
+        },
         {
           "course_name" : "OOPS",
           "course_id" : "14102",
-          "sem" : "4",
+          "sem_no" : 4,
           "books" : [
             {
               "name" : "Introduction to OOPS",
@@ -170,12 +162,7 @@
             }
           ]
         }
-      ],
-      "Five" : [],
-      "Six" : [],
-      "Seven" : [],
-      "Eight" : []
+      ]
     }
-  }
-]
+  ]
 }

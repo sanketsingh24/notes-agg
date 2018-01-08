@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router'
 
 class Onebit extends Component {
   handleClick = () => {

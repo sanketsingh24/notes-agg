@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Onebit from './Onebit';
 import Header from '../Header/Header';
 
@@ -29,7 +29,7 @@ export default class Icon extends Component {
 				<Header message={this.state.pageHeader} />
 				<div className="pro" >
 					{this.state.data.map(data =>
-						<Onebit key={data.id} image={data.imge} description={data.dept_name} />
+							<Onebit key={data.id} image={data.imge} description={data.dept_name} />
 					)}
 				</div>
 			</div>
