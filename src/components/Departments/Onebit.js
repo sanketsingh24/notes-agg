@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 
 class Onebit extends Component {
   handleClick = () => {
-    console.log(this.props.description);
+    this.props.onClick(this.props.id);
   };
 
   render() {

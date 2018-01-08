@@ -6,6 +6,9 @@ import Sidenav from './NavBar/Sidenav';
 // css
 import '../../css/App.css';
 
+const pushState = (obj,url) =>
+  window.history.pushState(obj, '', url);
+
 class App extends Component {
   state = {
     courses: this.props.initialData
@@ -21,13 +24,20 @@ class App extends Component {
       .catch(console.error)
   }
 
+  fetchDept = (departmentId) => {
+    pushState(
+      {currentDept: departmentId},
+      `/contest/${departmentId}`
+    );
+  };
+
   render() {
     return (
       <div className="App" >
         <Sidenav />
         <div id="container">
           <div className="board">
-            <Icon alldata={this.state.courses} />
+            <Icon onDeptClick={this.fetchDept} alldata={this.state.courses} />
           </div>
         </div>
       </div>
