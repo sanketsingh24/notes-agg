@@ -5,7 +5,7 @@
     "dept_id" : "GLC",
     "id" : 1,
     "imge": "img/AGL.png",
-    "total_sems" : ["Three","Four","Five","Six","Seven","Eight","Nine","Ten"],
+    "total_sems" : [3,4,5,6,7,8,9,10],
     "subjects": [
       {
           "course_name" : "Metamhorphic ptani",
@@ -90,7 +90,7 @@
     "dept_id" : "CSE",
     "id" : 2,
     "imge" :"img/CSE.png",
-    "total_sems" : ["Three","Four","Five","Six","Seven","Eight"],
+    "total_sems" : [3,4,5,6,7,8],
     "subjects": [
         {
           "course_name" : "Data Structures",

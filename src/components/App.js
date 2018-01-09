@@ -35,7 +35,7 @@ class App extends Component {
           <div className="board">
             <Router>
               <Switch>
-                <Route exact path="/about" render={()=> <Semcourses alldata={this.state.courses} />} />
+                <Route exact path="/:id" render={()=> <Semcourses alldata={this.state.courses} />} />
                 <Route exact path="/" render={()=> <Icon alldata={this.state.courses} />} />
               </Switch>
             </Router>

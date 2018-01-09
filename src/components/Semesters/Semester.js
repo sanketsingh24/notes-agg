@@ -10,7 +10,11 @@ export default class Semester extends Component {
 	render () {
 		return (
 			<nav className="Sem-menu">
-			
-		</nav>);
+				<ul>
+					{this.props.semList.courses[0].total_sems.map(data =>
+						<li key={data}>{data}</li>
+					)}
+				</ul>
+			</nav>);
 	}
 };
