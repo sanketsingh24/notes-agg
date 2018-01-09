@@ -22,8 +22,8 @@ export default class Semncourses extends Component {
       return(
         <div>
           <Header message={this.state.pageHeader} />
-          <Semester semList={this.state.data} />
-          <Courses courseList={this.state.data}/>
+          <Semester />
+          <Courses />
         </div>
       )
     }

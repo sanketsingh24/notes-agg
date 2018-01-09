@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route, Switch
+} from 'react-router-dom'
 import axios from 'axios';
 // Components
 import Icon from './Departments/Icon';
 import Sidenav from './NavBar/Sidenav';
+import Semcourses from './CoursePage/Semcourses';
+
 // css
 import '../../css/App.css';
-
-const pushState = (obj,url) =>
-  window.history.pushState(obj, '', url);
 
 class App extends Component {
   state = {
@@ -24,20 +27,18 @@ class App extends Component {
       .catch(console.error)
   }
 
-  fetchDept = (departmentId) => {
-    pushState(
-      {currentDept: departmentId},
-      `/contest/${departmentId}`
-    );
-  };
-
   render() {
     return (
       <div className="App" >
         <Sidenav />
         <div id="container">
           <div className="board">
-            <Icon onDeptClick={this.fetchDept} alldata={this.state.courses} />
+            <Router>
+              <Switch>
+                <Route exact path="/about" render={()=> <Semcourses alldata={this.state.courses} />} />
+                <Route exact path="/" render={()=> <Icon alldata={this.state.courses} />} />
+              </Switch>
+            </Router>
           </div>
         </div>
       </div>

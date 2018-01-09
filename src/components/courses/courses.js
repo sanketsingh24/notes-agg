@@ -4,8 +4,6 @@ import '../../../css/coursess.css'
 export default class Courses extends Component {
   constructor (props) {
       super(props);
-      this.state = {
-       };
     }
 
   render() {
