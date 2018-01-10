@@ -9,6 +9,7 @@
   },
   "author": "",
   "dependencies": {
+    "assert": "^1.4.1",
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "css-loader": "^0.28.7",

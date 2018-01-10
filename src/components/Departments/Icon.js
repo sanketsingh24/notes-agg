@@ -17,7 +17,6 @@ export default class Icon extends Component {
 		}
 
 	componentWillReceiveProps(nextprops) {
-		console.log(nextprops.alldata.courses);
 			this.setState({
 				data : nextprops.alldata.courses
 			})

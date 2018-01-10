@@ -11,7 +11,7 @@ export default class Semester extends Component {
 		return (
 			<nav className="Sem-menu">
 				<ul>
-					{this.props.semList.courses[0].total_sems.map(data =>
+					{this.props.semList.map(data =>
 						<li key={data}>{data}</li>
 					)}
 				</ul>

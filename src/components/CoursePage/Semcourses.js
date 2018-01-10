@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Semester from '../Semesters/Semester';
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
+import {Link} from 'react-router-dom';
 
 export default class Semcourses extends Component {
   constructor (props) {
@@ -13,18 +14,22 @@ export default class Semcourses extends Component {
 		}
 
     componentWillReceiveProps(nextprops) {
-      console.log(nextprops.alldata.courses);
+      console.log(nextprops.alldata);
         this.setState({
-          data : nextprops.alldata.courses
-        })
+          data : nextprops.alldata
+        });
+
     }
 
     render(){
+      const i = this.state.data.courses.findIndex((data) => data.dept_id === this.props.match.id);
+      const dept = this.state.data.courses[i];
+      console.log(dept);
       return(
         <div>
           <Header message={this.state.pageHeader} />
-          <Semester semList={this.state.data}/>
-          <Courses />
+          <Semester  semList={dept.total_sems}/>
+          <Courses subjectList={dept.subjects}/>
         </div>
       )
     }

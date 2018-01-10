@@ -24,7 +24,11 @@ class App extends Component {
             courses: resp.data
           });
         })
-      .catch(console.error)
+      .catch(console.error);
+
+    window.onpopstate = (event) => {
+      console.log(event);
+    };
   }
 
   render() {
@@ -35,7 +39,7 @@ class App extends Component {
           <div className="board">
             <Router>
               <Switch>
-                <Route exact path="/:id" render={()=> <Semcourses alldata={this.state.courses} />} />
+                <Route exact path="/dept/:id" render={({match})=> <Semcourses alldata={this.state.courses} match={match.params}/>} />
                 <Route exact path="/" render={()=> <Icon alldata={this.state.courses} />} />
               </Switch>
             </Router>
