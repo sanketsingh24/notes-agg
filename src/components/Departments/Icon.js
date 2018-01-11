@@ -28,7 +28,7 @@ export default class Icon extends Component {
 				<Header message={this.state.pageHeader} />
 				<div className="pro" >
 					{this.state.data.map(data =>
-							<Onebit id={data.dept_id} key={data.id} image={data.imge} description={data.dept_name} />
+							<Onebit id={data.dept_id} onlick={this.props.onDeptSelect} key={data.id} image={data.imge} description={data.dept_name} />
 					)}
 				</div>
 			</div>

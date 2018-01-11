@@ -4,8 +4,8 @@ import Icon from './Departments/Icon';
 import Sidenav from './NavBar/Sidenav';
 import Semcourses from './CoursePage/Semcourses';
 
-// css
-//import '../../css/App.css';
+const pushState = (obj, url) =>
+  window.history.pushState(obj, '', url);
 
 class App extends Component {
   state = {
@@ -14,6 +14,29 @@ class App extends Component {
 
   componentDidMount() {
 
+  }
+
+  fetchContest = (deptId) => {
+    pushState(
+       { currentDept: deptId },
+       `/dept/${deptId}`
+    );
+    const i = this.state.courses.findIndex((data) => data.dept_id === deptId);
+    const dept = this.state.courses[i];
+    this.setState({
+      currentDept: i,
+      DeptOn : true
+    });
+  };
+
+  currentContent() {
+    if (this.state.DeptOn){
+       return <Semcourses alldata={this.state.courses[this.state.currentDept]} />
+    }
+
+    return <Icon
+            onDeptSelect = {this.fetchContest}
+            alldata={this.state.courses} />;
 
   }
 
@@ -23,7 +46,7 @@ class App extends Component {
         <Sidenav />
         <div id="container">
           <div className="board">
-            <Icon alldata={this.state.courses} />
+            {this.currentContent()}
           </div>
         </div>
       </div>

@@ -21,14 +21,11 @@ export default class Semcourses extends Component {
     }
 
     render(){
-      const i = this.state.data.courses.findIndex((data) => data.dept_id === this.props.match.id);
-      const dept = this.state.data.courses[i];
-      console.log(dept);
       return(
         <div>
           <Header message={this.state.pageHeader} />
-          <Semester  semList={dept.total_sems}/>
-          <Courses subjectList={dept.subjects}/>
+          <Semester  semList={this.state.data.total_sems}/>
+          <Courses subjectList={this.state.data.subjects}/>
         </div>
       )
     }
