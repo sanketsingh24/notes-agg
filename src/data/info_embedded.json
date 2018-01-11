@@ -3,7 +3,7 @@
   {
     "dept_name" : "Applied Geology",
     "dept_id" : "GLC",
-    "id" : 1,
+    "id" : 0,
     "imge": "img/AGL.png",
     "total_sems" : [3,4,5,6,7,8,9,10],
     "subjects": [
@@ -88,7 +88,7 @@
   {
     "dept_name" : "Computer Science and Engineering",
     "dept_id" : "CSE",
-    "id" : 2,
+    "id" : 1,
     "imge" :"img/CSE.png",
     "total_sems" : [3,4,5,6,7,8],
     "subjects": [

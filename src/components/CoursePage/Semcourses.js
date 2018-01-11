@@ -13,7 +13,6 @@ export default class Semcourses extends Component {
 		}
 
     componentWillReceiveProps(nextprops) {
-      console.log(nextprops.alldata);
         this.setState({
           data : nextprops.alldata
         });
