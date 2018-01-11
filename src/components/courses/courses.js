@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../../css/coursess.css'
+//import '../../../css/coursess.css'
 
 export default class Courses extends Component {
   constructor (props) {

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Semester from '../Semesters/Semester';
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
-import {Link} from 'react-router-dom';
 
 export default class Semcourses extends Component {
   constructor (props) {

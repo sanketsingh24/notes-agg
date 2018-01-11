@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Onebit from './Onebit';
 import Header from '../Header/Header';
 
-import '../../../css/icons.css';
+//import '../../../css/icons.css';
 
 //import images
 
@@ -18,7 +18,7 @@ export default class Icon extends Component {
 
 	componentWillReceiveProps(nextprops) {
 			this.setState({
-				data : nextprops.alldata.courses
+				data : nextprops.alldata
 			})
 	}
 

@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route, Switch
-} from 'react-router-dom'
-import axios from 'axios';
 // Components
 import Icon from './Departments/Icon';
 import Sidenav from './NavBar/Sidenav';
 import Semcourses from './CoursePage/Semcourses';
 
 // css
-import '../../css/App.css';
+//import '../../css/App.css';
 
 class App extends Component {
   state = {
@@ -18,17 +13,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get('/api/info')
-      .then(resp => {
-          this.setState({
-            courses: resp.data
-          });
-        })
-      .catch(console.error);
 
-    window.onpopstate = (event) => {
-      console.log(event);
-    };
+
   }
 
   render() {
@@ -37,12 +23,7 @@ class App extends Component {
         <Sidenav />
         <div id="container">
           <div className="board">
-            <Router>
-              <Switch>
-                <Route exact path="/dept/:id" render={({match})=> <Semcourses alldata={this.state.courses} match={match.params}/>} />
-                <Route exact path="/" render={()=> <Icon alldata={this.state.courses} />} />
-              </Switch>
-            </Router>
+            <Icon alldata={this.state.courses} />
           </div>
         </div>
       </div>
