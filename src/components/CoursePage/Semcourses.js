@@ -7,24 +7,15 @@ export default class Semcourses extends Component {
   constructor (props) {
 	    super(props);
 	    this.state = {
-				data : this.props.alldata ,
 				pageHeader: 'List of Courses'
 			 };
 		}
-
-    componentWillReceiveProps(nextprops) {
-        this.setState({
-          data : nextprops.alldata
-        });
-
-    }
-
     render(){
       return(
         <div>
-          <Header message={this.state.pageHeader} />
-          <Semester  semList={this.state.data.total_sems}/>
-          <Courses subjectList={this.state.data.subjects}/>
+          <Header onClick={this.props.deptClick} message={this.state.pageHeader} />
+          <Semester  semList={this.props.total_sems}/>
+          <Courses />
         </div>
       )
     }

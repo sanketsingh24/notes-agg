@@ -6,13 +6,37 @@ import App from './src/components/App';
 import config from './config';
 import axios from 'axios';
 
-const serverRender = () =>
-  axios.get(`${config.serverUrl}/api/info`)
+const getApiUrl = (deptId) => {
+  if (deptId) {
+    return `${config.serverUrl}/api/info/${deptId}`;
+  }
+  return `${config.serverUrl}/api/info`;
+};
+
+const getInitialData = (deptId, apiData) => {
+  if (deptId) {
+    console.log(apiData)
+    return {
+      currentDeptId: apiData.id,
+      courses: {
+        [apiData.id]: apiData
+      }
+    };
+  };
+  return {
+    courses: apiData.courses
+  };
+};
+
+
+const serverRender = (deptId) =>
+  axios.get(getApiUrl(deptId))
     .then(resp => {
+      const initialinfo = getInitialData(deptId, resp.data);
       return{
         initialMarkup :ReactDOMServer.renderToString(
-        <App initialinfo={resp.data.courses}/>),
-        initialinfo : resp.data.courses
+        <App initialinfo={initialinfo}/>),
+        initialinfo
       };
     });
 

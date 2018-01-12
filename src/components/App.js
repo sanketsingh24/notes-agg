@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// Components
 import Icon from './Departments/Icon';
 import Sidenav from './NavBar/Sidenav';
 import Semcourses from './CoursePage/Semcourses';
@@ -8,41 +7,67 @@ import * as api from '../api';
 const pushState = (obj, url) =>
   window.history.pushState(obj, '', url);
 
+const onPopState = handler => {
+  window.onpopstate = handler;
+};
+
+
 class App extends Component {
   state = {
     courses: this.props.initialinfo
   };
 
   componentDidMount() {
-    window.onpopstate = (event) => {
-      this.setState({
-        currentDept: (event.state || {}).currentDept
+    onPopState((event) => {
+       this.setState({
+        currentDeptId: (event.state || {}).currentDeptId
       });
-    };
+    });
+
+  }
+  componentWillUnmount() {
+    onPopState(null);
   }
 
   fetchData = (deptId) => {
     pushState(
-       { currentDept: deptId },
+       { currentDeptId: deptId },
        `/dept/${deptId}`
     );
-
-    api.fetchData(deptId).then(dept => {
+    api.fetchDept(deptId).then(dept => {
+      console.log(dept.id)
       this.setState({
-        currentCourse: dept.dept.id,
-        currentDept: dept.dept.dept_id,
+        currentDeptId: dept.id,
         courses: {
-          ...this.state.courses
+          ...this.state.courses,
+          [dept.id]: dept
         }
       });
-    })
-
-
+    });
   };
 
+  fetchDeptList = () => {
+    pushState(
+      { currentDeptId: null },
+      '/'
+    );
+    api.fetchDeptList().then(Dept => {
+      this.setState({
+        currentDeptId: null,
+        Dept
+      });
+    });
+  };
+
+  currentDept() {
+    return this.state.courses[this.state.currentDeptId];
+  }
+
   currentContent() {
-    if (this.state.currentDept){
-       return <Semcourses alldata={this.state.courses[this.state.currentCourse]} />
+    if (this.state.currentDeptId) {
+      return <Semcourses
+                deptClick = {this.fetchDeptList}
+                {...this.currentDept()} />;
     }
 
     return <Icon

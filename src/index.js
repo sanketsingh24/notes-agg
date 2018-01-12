@@ -4,6 +4,6 @@ import App from './components/App';
 
 
 ReactDOM.render(
-  <App initialinfo={window.initialinfo} />, 
+  <App initialinfo={window.initialinfo} />,
   document.getElementById('root')
 );

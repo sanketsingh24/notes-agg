@@ -11,24 +11,17 @@ export default class Icon extends Component {
 	constructor (props) {
 	    super(props);
 	    this.state = {
-				data : this.props.alldata ,
 				pageHeader: 'Departments'
 			 };
 		}
-
-	componentWillReceiveProps(nextprops) {
-			this.setState({
-				data : nextprops.alldata
-			})
-	}
 
 	render () {
 		return (
 			<div>
 				<Header message={this.state.pageHeader} />
 				<div className="pro" >
-					{this.state.data.map(data =>
-							<Onebit id={data.dept_id} onlick={this.props.onDeptSelect} key={data.id} image={data.imge} description={data.dept_name} />
+					{Object.keys(this.props.alldata.courses).map(deptid =>
+							<Onebit id={deptid} onlick={this.props.onDeptSelect} key={deptid} {...this.props.alldata.courses[deptid]} />
 					)}
 				</div>
 			</div>

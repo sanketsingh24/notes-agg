@@ -11,9 +11,9 @@ export default class Courses extends Component {
       <div className="courses">
         <nav>
           <ul>
-              <li><a href="#nowhere">{this.props.subjectList[0].course_name}</a>
+              <li><a href="#nowhere">lol</a>
                   <ul>
-                  <li><a href="#">{this.props.subjectList[0].books[0].name}</a> </li>
+                  <li><a href="#">rofl</a> </li>
                   <li><a href="#">Notes</a> </li>
                   <li><a href="#">Videos</a> </li>
                   </ul>
