@@ -17,12 +17,12 @@ const getInitialData = (deptId, apiData) => {
   if (deptId) {
     console.log(apiData)
     return {
-      currentDeptId: apiData.id,
+      currentDeptId: apiData.docs.id,
       courses: {
-        [apiData.id]: apiData
+        [apiData.docs.id]: apiData.docs
       }
     };
-  };
+  }
   return {
     courses: apiData.courses
   };

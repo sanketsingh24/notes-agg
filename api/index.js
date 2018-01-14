@@ -39,4 +39,23 @@ router.get('/info/:deptId', (req,res) => {
     .catch(console.error);
 });
 
+router.get('/subjects/:subjectIds', (req, res) => {
+  const allSubIds = req.params.subjectIds.split(',').map(Number);
+  let subjects = {};
+  mdb.collection('subjects').find({ id: {$in: allSubIds}})
+    .project({
+      _id: 0
+    })
+    .each(function(err, docs) {
+      assert.equal(err, null);
+
+      if(!docs){
+        res.send( {subjects} );
+        return;
+      }
+
+      subjects[docs.id] = docs;
+    });
+});
+
 export default router;

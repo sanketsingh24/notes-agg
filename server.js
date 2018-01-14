@@ -15,7 +15,7 @@ server.get(['/','/dept/:deptId'], (req, res)=> {
         initialinfo
       });
     })
-    .catch(console.error)
+    .catch(console.error);
 
 });
 

@@ -35,7 +35,7 @@ class App extends Component {
        `/dept/${deptId}`
     );
     api.fetchDept(deptId).then(dept => {
-      console.log(dept.id)
+      console.log(dept.id);
       this.setState({
         currentDeptId: dept.id,
         courses: {
@@ -59,14 +59,34 @@ class App extends Component {
     });
   };
 
+  fetchSubjects = (courseIds) => {
+    if(courseIds.length === 0) {
+      return ;
+    }
+    api.fetchSubjects(courseIds).then(subjects =>{
+      this.setState({
+        subjects
+      });
+    });
+  };
+
   currentDept() {
     return this.state.courses[this.state.currentDeptId];
+  }
+
+  lookupSubjects = (courseId) => {
+    if(!this.state.subjects || !this.state.subjects[courseId]) {
+      return 'Loading..';
+    }
+    return this.state.subjects[courseId];
   }
 
   currentContent() {
     if (this.state.currentDeptId) {
       return <Semcourses
                 deptClick = {this.fetchDeptList}
+                fetchSubjectList = {this.fetchSubjects}
+                lookupSubjects = {this.lookupSubjects}
                 {...this.currentDept()} />;
     }
 

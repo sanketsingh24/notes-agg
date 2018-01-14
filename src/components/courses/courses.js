@@ -9,17 +9,9 @@ export default class Courses extends Component {
   render() {
     return (
       <div className="courses">
-        <nav>
-          <ul>
-              <li><a href="#nowhere">lol</a>
-                  <ul>
-                  <li><a href="#">rofl</a> </li>
-                  <li><a href="#">Notes</a> </li>
-                  <li><a href="#">Videos</a> </li>
-                  </ul>
-              </li>
-          </ul>
-      </nav>
+        <h6>{this.props.subjects.course_name}</h6>
+        <h6>{this.props.subjects.course_id}</h6>
+        <h6>{this.props.subjects.sem_no}</h6>
       </div>
     );
   }
