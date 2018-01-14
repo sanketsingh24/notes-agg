@@ -16,7 +16,6 @@ server.get(['/','/dept/:deptId'], (req, res)=> {
       });
     })
     .catch(console.error);
-
 });
 
 server.use('/api', apiRouter);

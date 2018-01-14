@@ -23,7 +23,7 @@ router.get('/info', (req, res) => {
       assert.equal(err, null);
 
       if(!docs){
-        res.send( {courses} );
+        res.send( courses );
         return;
       }
 
@@ -35,7 +35,7 @@ router.get('/info/:deptId', (req,res) => {
 //  console.log(req.params.deptId + ' api')
   mdb.collection('depts')
     .findOne({ id: Number(req.params.deptId)})
-    .then(docs => res.send( {docs} ))
+    .then(docs => res.send( docs ))
     .catch(console.error);
 });
 

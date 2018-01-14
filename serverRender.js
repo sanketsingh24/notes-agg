@@ -15,16 +15,15 @@ const getApiUrl = (deptId) => {
 
 const getInitialData = (deptId, apiData) => {
   if (deptId) {
-    console.log(apiData)
     return {
-      currentDeptId: apiData.docs.id,
+      currentDeptId: apiData.id,
       courses: {
-        [apiData.docs.id]: apiData.docs
+        [apiData.id]: apiData
       }
     };
   }
   return {
-    courses: apiData.courses
+    courses: apiData
   };
 };
 

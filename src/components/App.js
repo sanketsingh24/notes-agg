@@ -35,7 +35,6 @@ class App extends Component {
        `/dept/${deptId}`
     );
     api.fetchDept(deptId).then(dept => {
-      console.log(dept.id);
       this.setState({
         currentDeptId: dept.id,
         courses: {
