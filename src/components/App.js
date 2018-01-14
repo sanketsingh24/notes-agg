@@ -75,7 +75,7 @@ class App extends Component {
 
   lookupSubjects = (courseId) => {
     if(!this.state.subjects || !this.state.subjects[courseId]) {
-      return 'Loading..';
+      return 'Loading...';
     }
     return this.state.subjects[courseId];
   }
