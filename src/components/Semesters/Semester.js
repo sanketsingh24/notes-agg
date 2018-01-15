@@ -10,9 +10,7 @@ export default class Semester extends Component {
 		return (
 			<nav className="Sem-menu">
 				<ul>
-					{this.props.semList.map(data =>
-						<li key={data}>{data}</li>
-					)}
+					{this.props.semNo}
 				</ul>
 			</nav>);
 	}

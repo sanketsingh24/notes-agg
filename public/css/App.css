@@ -7,7 +7,7 @@
 }
 body {
   margin: auto;
-  background-color: #ffffff;
+  background-color: #eee;
   width: 100%;
   font-family:sans-serif;
 }
@@ -15,4 +15,14 @@ body {
 #container {
     transition: margin-left .1s;
     margin-left: 24px;
+}
+
+html,
+body,
+input,
+textarea,
+buttons {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }

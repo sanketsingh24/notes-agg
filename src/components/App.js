@@ -35,6 +35,7 @@ class App extends Component {
        `/dept/${deptId}`
     );
     api.fetchDept(deptId).then(dept => {
+      console.log(dept.id);
       this.setState({
         currentDeptId: dept.id,
         courses: {
@@ -75,7 +76,7 @@ class App extends Component {
 
   lookupSubjects = (courseId) => {
     if(!this.state.subjects || !this.state.subjects[courseId]) {
-      return 'Loading...';
+      return 'Loading..';
     }
     return this.state.subjects[courseId];
   }

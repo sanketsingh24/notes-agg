@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Semester from '../Semesters/Semester';
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
+import Tabs from 'muicss/lib/react/tabs';
+import Tab from 'muicss/lib/react/tab';
 
 export default class Semcourses extends Component {
   constructor (props) {
@@ -13,14 +14,23 @@ export default class Semcourses extends Component {
   componentDidMount() {
     this.props.fetchSubjectList(this.props.course_ids);
   }
+
+  look(courseId, i) {
+    let semno = courseId.toString()[2];
+    return(
+          <Tab key={i} label={semno}>
+            <Courses subjects={this.props.lookupSubjects(courseId)}/>
+          </Tab>
+    );
+  }
+
   render(){
     return(
       <div>
         <Header onClick={this.props.deptClick} message={this.state.pageHeader} />
-        <Semester  semList={this.props.total_sems}/>
-        {this.props.course_ids.map(courseId =>
-            <Courses key={courseId} subjects={this.props.lookupSubjects(courseId)}/>
-        )}
+        <Tabs className="courses">
+        {this.props.course_ids.map(this.look.bind(this))}
+        </Tabs>
       </div>
     );
   }
