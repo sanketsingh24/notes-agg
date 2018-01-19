@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Onebit from './Onebit';
 import Header from '../Header/Header';
 
@@ -8,23 +8,21 @@ import Header from '../Header/Header';
 
 
 export default class Icon extends Component {
-	constructor (props) {
-	    super(props);
-	    this.state = {
-				pageHeader: 'Departments'
-			 };
-		}
 
 	render () {
 		return (
 			<div>
-				<Header message={this.state.pageHeader} />
+				<Header message='Departments' />
 				<div className="pro" >
-					{Object.keys(this.props.alldata.courses).map(deptid =>
-							<Onebit id={deptid} onlick={this.props.onDeptSelect} key={deptid} {...this.props.alldata.courses[deptid]} />
+					{Object.keys(this.props.dept).map(deptid =>
+							<Onebit id={deptid} key={deptid} {...this.props.dept[deptid]} />
 					)}
 				</div>
 			</div>
 		);
 	}
+}
+
+Icon.propTypes = {
+  dept: PropTypes.Object.isRequired
 };

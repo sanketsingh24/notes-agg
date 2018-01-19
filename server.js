@@ -1,21 +1,28 @@
 import config from './config';
 import apiRouter from './api';
 import express from 'express';
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server'
+import createBrowserHistory from 'history/lib/createBrowserHistory'
+
+import { configureStore } from './src/store/configureStore';
+import App from './src/components/App';
+
 const server = express();
+const history = createBrowserHistory();
 
-server.set('view engine', 'ejs');
+server.use( (req,res) => {
+  const store = configureStore(initialState);
 
-import serverRender from './serverRender';
+  const html = renderToString(
+    <Provider store={store}>
+      <App history={history} />
+    </Provider>
+  );
 
-server.get(['/','/dept/:deptId'], (req, res)=> {
-  serverRender(req.params.deptId)
-    .then(( { initialMarkup, initialinfo } ) => {
-      res.render('index',{
-        initialMarkup,
-        initialinfo
-      });
-    })
-    .catch(console.error);
+    
 });
 
 server.use('/api', apiRouter);

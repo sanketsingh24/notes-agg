@@ -11,7 +11,6 @@ MongoClient.connect(config.mongodbUrl, (err, db) => {
       dept_id : 'GLC',
       id : 1,
       imge: 'img/AGL.png',
-      total_sems : [3,4,5,6,7,8,9,10],
       course_ids : [113105,114104]
     },
     {
@@ -19,7 +18,6 @@ MongoClient.connect(config.mongodbUrl, (err, db) => {
       dept_id : 'CSE',
       id : 2,
       imge: 'img/CSE.png',
-      total_sems : [3,4,5,6,7,8],
       course_ids : [213101,214102]
     }
   ]).then(response => {
