@@ -15,12 +15,11 @@ export default class Icon extends Component {
 			<div>
 				<Header message='Departments' />
 				<div className="pro" >
-					{Object.keys(this.props.dept).map(deptid =>
-							<Onebit id={deptid} key={deptid} dept={this.props.dept[deptid]} />
+					{this.props.dept.map((dept,i) =>
+							<Onebit id={i} key={i} imge={dept.imge} dept_name={dept.dept_name} />
 					)}
 				</div>
 			</div>
 		);
 	}
 }
-

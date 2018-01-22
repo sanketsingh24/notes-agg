@@ -6,9 +6,9 @@ class Onebit extends Component {
 
   render() {
     return (
-        <div className = "onebit" onClick={axios.get('/api/info').then(res=>res.json()).then(x=>console.log(x))}>
-          <img id="image" className = "image" src= {this.props.dept.imge} alt={this.props.dept.dept_name} />
-          <p id="texts" className = "texts" >{this.props.dept.dept_name}</p>
+        <div className = "onebit" >
+          <img id="image" className = "image" src= {this.props.imge} alt={this.props.dept_name} />
+          <p id="texts" className = "texts" >{this.props.dept_name}</p>
         </div>
 
     );

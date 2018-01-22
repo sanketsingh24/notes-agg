@@ -49,19 +49,16 @@ server.get('/', function (req, res) {
     .then(resp => {
 //      console.log(resp);
       let initialState = resp;
-      console.log(resp);
-      console.log(rootReducer);
-      const store = createStore(rootReducer, initialState);
-      console.log(' 1 ');
+      const store = createStore(rootReducer,
+         initialState,
+       );
       const html = ReactDOMServer.renderToString(
         <Provider store={store}>
           <App />
         </Provider>
       );
-      console.log(' 2 ');
 
       const preloadedstate = store.getState();
-      console.log(' 3 ');
 
       res.send(fullPage(html,preloadedstate));
     });

@@ -14,20 +14,13 @@ MongoClient.connect(config.mongodbUrl, (err,db) => {
 const router = express.Router();
 
 router.get('/info', (req, res) => {
-    let dept = {};
     mdb.collection('depts').find({})
         .project({
             _id: 0
         })
-        .each(function(err, docs) {
-            assert.equal(err, null);
-
-            if(!docs){
-                res.send( {dept} );
-                return;
-            }
-
-            dept [docs.id] = docs;
+        .toArray(function(err, dept) {
+          assert.equal(err, null);
+          res.send({dept});
         });
 });
 
