@@ -1,0 +1,7 @@
+<%- include('header') -%>
+  <div id="root"><%- html -%></div>
+
+  <script type="text/javascript">
+    window.__INITIAL_STATE__ = <%- JSON.stringify(preloadedstate) -%>;
+  </script>
+<%- include('footer') -%>

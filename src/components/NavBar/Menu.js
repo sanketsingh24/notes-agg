@@ -13,10 +13,10 @@ export default class Menu extends Component {
 			var lol = 'Search by Department';
 		}
 		else if (text==='code'){
-			 lol = 'Search by Subject Code';
+			lol = 'Search by Subject Code';
 		}
 		else {
-			 lol = 'Search by Semester';
+			lol = 'Search by Semester';
 		}
 		return (
 			<div key={i}>

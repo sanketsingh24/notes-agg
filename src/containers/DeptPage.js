@@ -5,7 +5,7 @@ import { addDept } from '../actions/action';
 
 function mapStateToProps(state) {
   return {
-    depts: state.depts
+    dept: state.dept
   };
 }
 

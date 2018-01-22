@@ -3,38 +3,38 @@ import React, {Component} from 'react';
 export default class Panel extends Component {
 
 	constructor(props) {
-	  super(props);
+	super(props);
 
-	  // You need to bind your functions in the constructor
-	  this.openNav = this.openNav.bind(this);
-	  this.closeNav = this.closeNav.bind(this);
-	  this.onClick= this.onClick.bind(this);
-		this.state = {open: false};
+	// You need to bind your functions in the constructor
+	this.openNav = this.openNav.bind(this);
+	this.closeNav = this.closeNav.bind(this);
+	this.onClick= this.onClick.bind(this);
+	this.state = {open: false};
 	}
 
 
 	openNav() {
-	    document.getElementById("mySidenav").style.width = "425px";
-	    document.getElementById("container").style.marginLeft = "400px";
-	    //document.getElementById( "panelinout" ).setAttribute( "onClick", {closeNav} );
+		document.getElementById("mySidenav").style.width = "425px";
+		document.getElementById("container").style.marginLeft = "400px";
+		//document.getElementById( "panelinout" ).setAttribute( "onClick", {closeNav} );
 			this.setState({open: true});
 			document.getElementById("panelinout").className = "hamburger change";
 	}
 
 	closeNav() {
-	    document.getElementById("mySidenav").style.width = "50px";
-	    document.getElementById("container").style.marginLeft = "24px";
-	    //document.getElementById("panelinout" ).setAttribute( "onClick", {openNav} );
-			this.setState({open: false});
-			document.getElementById("panelinout").className = "hamburger";
+		document.getElementById("mySidenav").style.width = "50px";
+		document.getElementById("container").style.marginLeft = "24px";
+		//document.getElementById("panelinout" ).setAttribute( "onClick", {openNav} );
+		this.setState({open: false});
+		document.getElementById("panelinout").className = "hamburger";
 	}
 
 	onClick() {
-	  if (this.state.open) {
-	    this.closeNav();
-	  } else {
-	    this.openNav();
-	  }
+		if (this.state.open) {
+			this.closeNav();
+		} else {
+			this.openNav();
+		}
 	}
 
 	render () {
@@ -46,4 +46,4 @@ export default class Panel extends Component {
 			</div>
 		);
 	}
-};
+}

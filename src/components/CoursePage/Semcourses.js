@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
 import Tabs from 'muicss/lib/react/tabs';
