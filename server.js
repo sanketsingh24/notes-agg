@@ -6,8 +6,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOMServer from 'react-dom/server';
 
-import { createStore } from 'redux';
-import rootReducer from './src/reducers/rootReducer';
+import { configureStore } from './src/store/configureStore';
 import App from './src/containers/App';
 import * as api from './src/api/api';
 
@@ -49,9 +48,7 @@ server.get('/', function (req, res) {
     .then(resp => {
 //      console.log(resp);
       let initialState = resp;
-      const store = createStore(rootReducer,
-         initialState,
-       );
+      const store = configureStore(initialState);
       const html = ReactDOMServer.renderToString(
         <Provider store={store}>
           <App />

@@ -24,23 +24,17 @@ router.get('/info', (req, res) => {
         });
 });
 
-// router.get('/subjects/:subjectIds', (req, res) => {
-//   const allSubIds = req.params.subjectIds.split(',').map(Number);
-//   let subjects= {};
-//   mdb.collection('subjects').find({ id: {$in: allSubIds}})
-//     .project({
-//       _id: 0
-//     })
-//     .each(function(err, docs) {
-//       assert.equal(err, null);
-//
-//       if(!docs){
-//           res.send( {subjects} );
-//           return;
-//       }
-//
-//       subjects[docs.id] = docs;
-//     });
-// });
+router.get('/subjects/:subjectIds', (req, res) => {
+  const allSubIds = req.params.subjectIds.split(',').map(Number);
+  mdb.collection('subjects').find({ id: {$in: allSubIds}})
+    .project({
+      _id: 0
+    })
+    .toArray(function(err, subjects) {
+      assert.equal(err, null);
+
+      res.send({subjects})
+    });
+});
 
 export default router;

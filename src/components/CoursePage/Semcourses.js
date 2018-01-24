@@ -8,6 +8,7 @@ import Tab from 'muicss/lib/react/tab';
 
 export default class Semcourses extends Component {
 
+
   look(courseId, i) {
     let semno = courseId.toString()[2];
     return(

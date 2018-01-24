@@ -16,7 +16,13 @@ export default class Icon extends Component {
 				<Header message='Departments' />
 				<div className="pro" >
 					{this.props.dept.map((dept,i) =>
-							<Onebit id={i} key={i} imge={dept.imge} dept_name={dept.dept_name} />
+							<Onebit 
+								id={dept.dept_id} 
+								fetchSubjectWithRedux={this.props.fetchSubjectWithRedux} 
+								key={i} 
+								imge={dept.imge} 
+								dept_name={dept.dept_name} 
+								courseId={dept.course_ids} />
 					)}
 				</div>
 			</div>
