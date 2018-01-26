@@ -1,7 +1,10 @@
 export const ADD_DEPT = 'ADD_DEPT';
 export const REQUEST_SUBJECTS = 'REQUEST_SUBJECTS';
 export const RECEIVE_SUBJECTS = 'RECEIVE_SUBJECTS';
-export const RECEIVE_ERROR = 'RECEIVE_ERROR';
+export const RECEIVE_SUBJECTS_ERROR = 'RECEIVE_SUBJECTS_ERROR';
+export const REQUEST_DEPTS = 'REQUEST_DEPTS';
+export const RECEIVE_DEPTS = 'RECEIVE_DEPTS';
+export const RECEIVE_DEPTS_ERROR = 'RECEIVE_DEPTS_ERROR';
 
 // export function addDept(dept_name, dept_id, imge, course_id) {
 //   return {
@@ -40,8 +43,27 @@ export function receiveSubjects(payload) {
   }
 }
 
-export function receiveError() {
+export function receiveSubjectsError() {
   return {
-    type: RECEIVE_ERROR
+    type: RECEIVE_SUBJECTS_ERROR
+  }
+}
+
+export function requestDepts() {
+  return {
+    type: REQUEST_DEPTS,
+  }
+}
+
+export function receiveDepts(payload) {
+  return {
+    type: RECEIVE_DEPTS,
+    payload
+  }
+}
+
+export function receiveDeptsError() {
+  return {
+    type: RECEIVE_DEPTS_ERROR
   }
 }

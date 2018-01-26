@@ -5,7 +5,6 @@ export default class Panel extends Component {
 	constructor(props) {
 	super(props);
 
-	// You need to bind your functions in the constructor
 	this.openNav = this.openNav.bind(this);
 	this.closeNav = this.closeNav.bind(this);
 	this.onClick= this.onClick.bind(this);

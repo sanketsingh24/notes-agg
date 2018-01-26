@@ -30,6 +30,3 @@ export default class Semcourses extends Component {
   }
 }
 
-Semcourses.propTypes = {
-  subjects: PropTypes.Object.isRequired
-};

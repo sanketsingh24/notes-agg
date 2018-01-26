@@ -9,23 +9,22 @@ import PropTypes from 'prop-types';
 
 
 export default class Icon extends Component {
-
 	render () {
 		return (
 			<div>
 				<Header message='Departments' />
-				<div className="pro" >
+				<div className='pro' >
 					{this.props.dept.map((dept,i) =>
 							<Onebit 
 								id={dept.dept_id} 
 								fetchSubjectWithRedux={this.props.fetchSubjectWithRedux} 
-								key={i} 
+								key={i}
 								imge={dept.imge} 
 								dept_name={dept.dept_name} 
 								courseId={dept.course_ids} />
 					)}
 				</div>
-			</div>
-		);
-	}
+			</div> 
+		); 
+	} 
 }

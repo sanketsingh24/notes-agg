@@ -17,9 +17,6 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
 # node-waf configuration
 .lock-wscript
 
@@ -32,6 +29,9 @@ jspm_packages
 
 #database
 data
+
+#Visual Studio configuration file
+.vscode
 
 # Optional npm cache directory
 .npm

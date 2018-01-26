@@ -42,25 +42,59 @@ function fullPage(html,preloadedstate) {
     </html>`);
 }
 
-server.get('/', function (req, res) {
-//  console.log(' server/get ');
-  api.fetchDeptList()
-    .then(resp => {
-//      console.log(resp);
-      let initialState = resp;
-      const store = configureStore(initialState);
-      const html = ReactDOMServer.renderToString(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      );
+server.use((req, res, next) => {
+  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    if (err) {
+      return res.status(500).end(renderError(err));
+    }
 
-      const preloadedstate = store.getState();
+    if (redirectLocation) {
+      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    }
 
-      res.send(fullPage(html,preloadedstate));
-    });
+    if (!renderProps) {
+      return next();
+    }
 
+    const store = configureStore();
+
+    return fetchComponentData(store, renderProps.components, renderProps.params)
+      .then(() => {
+        const initialView = renderToString(
+          <Provider store={store}>
+              <RouterContext {...renderProps} />
+          </Provider>
+        );
+        const finalState = store.getState();
+
+        res
+          .set('Content-Type', 'text/html')
+          .status(200)
+          .end(renderFullPage(initialView, finalState));
+      })
+      .catch((error) => next(error));
+  });
 });
+
+// server.get('/', function (req, res) {
+// //  console.log(' server/get ');
+//   api.fetchDeptList()
+//     .then(resp => {
+// //      console.log(resp);
+//       let initialState = resp;
+//       const store = configureStore(initialState);
+//       const html = ReactDOMServer.renderToString(
+//         <Provider store={store}>
+//           <App />
+//         </Provider>
+//       );
+
+//       const preloadedstate = store.getState();
+
+//       res.send(fullPage(html,preloadedstate));
+//     });
+
+// });
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));
