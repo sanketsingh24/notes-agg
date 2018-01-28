@@ -17,7 +17,6 @@ export default class Icon extends Component {
 					{this.props.dept.map((dept,i) =>
 							<Onebit 
 								id={dept.dept_id} 
-								fetchSubjectWithRedux={this.props.fetchSubjectWithRedux} 
 								key={i}
 								imge={dept.imge} 
 								dept_name={dept.dept_name} 

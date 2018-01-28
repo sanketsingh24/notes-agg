@@ -3,7 +3,7 @@ import { REQUEST_DEPTS, RECEIVE_DEPTS, RECEIVE_DEPTS_ERROR } from '../actions/ac
 export default function fetchDepts (state = {}, action) {
     switch (action.type) {
       case REQUEST_DEPTS:
-        return {...state};
+        return state;
       case RECEIVE_DEPTS: 
         return {...state, depts: action.payload.depts};
       case RECEIVE_DEPTS_ERROR: 

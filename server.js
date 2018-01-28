@@ -4,13 +4,13 @@ import express from 'express';
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from './src/containers/App';
 import * as api from './src/api/api';
-import { configureStore } from './store/configureStore';
-import routes from './routes/routes';
+import { configureStore } from './src/store/configureStore';
+import routes from './src/routes/routes';
 
 const server = express();
 
@@ -49,13 +49,14 @@ server.get('/', function (req, res) {
   api.fetchDeptList()
     .then(resp => {
 //      console.log(resp);
+      const context = {};
       let initialState = resp;
       const store = configureStore(initialState);
       const html = ReactDOMServer.renderToString(
         <Provider store={store}>
-          <BrowserRouter>
-            {routes}
-          </BrowserRouter>
+          <StaticRouter context = {context} >
+            <App />
+          </StaticRouter>
         </Provider>,
       );
 
@@ -66,24 +67,27 @@ server.get('/', function (req, res) {
 
 });
 
-server.get('/subjects/:subjectIds', function (req, res) {
-  let subIds = req.params.subjectIds;
-  api.fetchSubjects(subIds)
-    .then(resp => {
-      let initialState = resp;
-      const store = configureStore(initialState);
-      const html = ReactDOMServer.renderToString(
-        <Provider store={store}>
-          <BrowserRouter>
-            {routes}
-          </BrowserRouter>
-        </Provider>,
-      );
+server.get('/dept/:deptId', function (req, res) {
+  api.fetchDept(req.params.deptId)
+    .then(resp => 
+      api.fetchSubjects(resp.course_ids)
+        .then(resp => {
+          let initialState = resp;
+          const context = {};
+          const store = configureStore(initialState);
+          const html = ReactDOMServer.renderToString(
+            <Provider store={store}>
+              <StaticRouter context = {context}>
+                <App />
+              </StaticRouter>
+            </Provider>,
+          );
 
-      const preloadedstate= store.getState();
+          const preloadedstate= store.getState();
 
-      res.send(fullPage(html,preloadedstate);)
-    });
+          res.send(fullPage(html,preloadedstate))
+        })
+    )
 });
 
 server.use('/api', apiRouter);

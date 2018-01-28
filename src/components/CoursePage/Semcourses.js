@@ -22,11 +22,12 @@ export default class Semcourses extends Component {
     return(
       <div>
         <Header message='List of Courses' />
-        <Tabs className="courses">
-          {this.props.subjects.course_ids.map(this.look.bind(this))}
-        </Tabs>
+
       </div>
     );
   }
 }
 
+/**        <Tabs className="courses">
+          {this.props.subjects.course_ids.map(this.look.bind(this))}
+        </Tabs> */

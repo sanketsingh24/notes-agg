@@ -24,6 +24,13 @@ router.get('/info', (req, res) => {
         });
 });
 
+router.get('/info/:deptId', (req,res) => {
+    mdb.collection('depts')
+      .findOne({ dept_id: String(req.params.deptId)})
+      .then(docs => res.send( docs ))
+      .catch(console.error);
+  });
+
 router.get('/subjects/:subjectIds', (req, res) => {
   const allSubIds = req.params.subjectIds.split(',').map(Number);
   mdb.collection('subjects').find({ id: {$in: allSubIds}})
