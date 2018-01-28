@@ -3,12 +3,14 @@ import apiRouter from './api';
 import express from 'express';
 
 import React from 'react';
-import { Provider } from 'react-redux';
 import ReactDOMServer from 'react-dom/server';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import { configureStore } from './src/store/configureStore';
 import App from './src/containers/App';
 import * as api from './src/api/api';
+import { configureStore } from './store/configureStore';
+import routes from './routes/routes';
 
 const server = express();
 
@@ -42,59 +44,47 @@ function fullPage(html,preloadedstate) {
     </html>`);
 }
 
-server.use((req, res, next) => {
-  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
-    if (err) {
-      return res.status(500).end(renderError(err));
-    }
+server.get('/', function (req, res) {
+//  console.log(' server/get ');
+  api.fetchDeptList()
+    .then(resp => {
+//      console.log(resp);
+      let initialState = resp;
+      const store = configureStore(initialState);
+      const html = ReactDOMServer.renderToString(
+        <Provider store={store}>
+          <BrowserRouter>
+            {routes}
+          </BrowserRouter>
+        </Provider>,
+      );
 
-    if (redirectLocation) {
-      return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-    }
+      const preloadedstate = store.getState();
 
-    if (!renderProps) {
-      return next();
-    }
+      res.send(fullPage(html,preloadedstate));
+    });
 
-    const store = configureStore();
-
-    return fetchComponentData(store, renderProps.components, renderProps.params)
-      .then(() => {
-        const initialView = renderToString(
-          <Provider store={store}>
-              <RouterContext {...renderProps} />
-          </Provider>
-        );
-        const finalState = store.getState();
-
-        res
-          .set('Content-Type', 'text/html')
-          .status(200)
-          .end(renderFullPage(initialView, finalState));
-      })
-      .catch((error) => next(error));
-  });
 });
 
-// server.get('/', function (req, res) {
-// //  console.log(' server/get ');
-//   api.fetchDeptList()
-//     .then(resp => {
-// //      console.log(resp);
-//       let initialState = resp;
-//       const store = configureStore(initialState);
-//       const html = ReactDOMServer.renderToString(
-//         <Provider store={store}>
-//           <App />
-//         </Provider>
-//       );
+server.get('/subjects/:subjectIds', function (req, res) {
+  let subIds = req.params.subjectIds;
+  api.fetchSubjects(subIds)
+    .then(resp => {
+      let initialState = resp;
+      const store = configureStore(initialState);
+      const html = ReactDOMServer.renderToString(
+        <Provider store={store}>
+          <BrowserRouter>
+            {routes}
+          </BrowserRouter>
+        </Provider>,
+      );
 
-//       const preloadedstate = store.getState();
+      const preloadedstate= store.getState();
 
-//       res.send(fullPage(html,preloadedstate));
-//     });
-
-// });
+      res.send(fullPage(html,preloadedstate);)
+    });
+});
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));

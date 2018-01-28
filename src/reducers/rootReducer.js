@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
-import dept from './dept';
+import dept from './fetchDept';
 import fetchsubject from './fetchSubjects';
 //import subject from './subject';
 
 const rootReducer = combineReducers({
   dept : dept,
-  subjects : fetchsubject
+ // subjects : fetchsubject
 //  subject : subject,
 });
 

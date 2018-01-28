@@ -6,17 +6,10 @@ import SubjectPage from '../containers/SubjectPage';
 import App from '../containers/App';
 
 
-export default routes = [
-  { component: App,
-    routes: [
-      { path: '/',
-        exact: true,
-        component: DeptPage
-      },
-      { path: '/dept/:deptId',
-        component: SubjectPage
-      }
-    ]
-  }
-];
+export default (
+  <Route exact path="/" component={App} >
+    <Route path="/" component={DeptPage} />
+    <Route path="/dept/:deptId" component={SubjectPage} />
+  </Route>
+);
  

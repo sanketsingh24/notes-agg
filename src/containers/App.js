@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Sidenav from '../components/NavBar/Sidenav';
 import DeptPage from './DeptPage';
-import routes from '../routes/routes';
 
 
 class App extends Component {
@@ -11,7 +10,7 @@ class App extends Component {
         <Sidenav />
         <div id="container">
           <div className="board">
-            {routes}
+            {this.props.children}
           </div>
         </div>
       </div>
