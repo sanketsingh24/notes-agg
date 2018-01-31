@@ -16,7 +16,7 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps/*, {fetchSubjectWithRedux}*/)(Icon);
 
-// function fetchSubjectWithRedux(deptId,courseIds) {
+// function fetchSubjectWhenSurfing(deptId,courseIds) {
 // 	return (dispatch) => {
 //   	dispatch(requestSubjects(deptId));
 //     return fetchSubject(courseIds).then(([response, json]) =>{

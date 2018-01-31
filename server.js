@@ -30,7 +30,7 @@ function fullPage(html,preloadedstate) {
         <link href="/css/icons.css" rel="stylesheet" type="text/css">
         <link href="/css/sidenavs.css" rel="stylesheet" type="text/css">
         <link href="/css/dialogbo.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" media="screen" href="//cdn.muicss.com/mui-0.9.35/css/mui.css" />
+        <!--<link rel="stylesheet" type="text/css" media="screen" href="//cdn.muicss.com/mui-0.9.35/css/mui.css" />-->
       </head>
       <body>
         <div id="root">${html}</div>
