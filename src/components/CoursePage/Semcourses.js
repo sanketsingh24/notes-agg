@@ -9,24 +9,13 @@ import Tab from 'muicss/lib/react/tab';
 export default class Semcourses extends Component {
   constructor(props) {
     super(props)
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchSubjectsIfNeeded(this.props.match.params.deptId));
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.deptId !== prevProps.dept.dept_id) {
-  //     const { dispatch } = this.props;
-  //     dispatch(fetchSubjectsIfNeeded(this.props.match.params.deptId))
-  //   }
-  // }
-
-  handleChange(dept_id) {
-    const deptId = this.props.match.params.deptId;
-    this.props.dispatch(fetchSubjectsIfNeeded(dept_id))
+    const { dispatch, dept, match } = this.props;
+    const ID = dept.findIndex(id => id.dept_id === match.params.deptId);
+    console.log(ID);
+    dispatch(fetchSubjectsIfNeeded(ID, dept[ID].course_ids));
   }
 
   // look(courseId, i) {
@@ -42,7 +31,7 @@ export default class Semcourses extends Component {
     return(
       <div>
         <Header message='List of Courses' />
-        <p></p>
+
       </div>
     );
   }

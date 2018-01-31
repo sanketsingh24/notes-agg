@@ -4,12 +4,10 @@ import Semcourses from '../components/CoursePage/Semcourses';
 import { fetchSubjectsIfNeeded } from "../actions/action";
 
 function mapStateToProps(state) {
-  const { deptId, subjectsByfetching } = state
-  const { isFetching, subjects: subjects} = subjectsByfetching[deptId] || { isFetching: true, subjects: []};
+  const { deptId } = state;
   return {
     deptId,
-    subjects,
-    isFetching,
+    subjects: state.subjectsByfetching.subjects,
     dept : state.dept
   }
 }

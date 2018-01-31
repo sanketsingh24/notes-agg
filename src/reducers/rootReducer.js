@@ -7,44 +7,21 @@ import {
   RECEIVE_SUBJECTS
 } from '../actions/action'
 
-function subjects(
-  state = {
-    isFetching: false,
-    subjects: [],
-    dept: []
-  },
-  action
-) {
+function subjectsByfetching( state = {}, action) {
   switch (action.type) {
     case REQUEST_SUBJECTS:
-      return Object.assign({}, state, {
-        isFetching: true,
-      })
+      return Object.assign({}, state, {});
     case RECEIVE_SUBJECTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        subjects: action.subjects,
-      })
+      console.log(action.subjects);
+      return {...state , subjects: action.subjects};
     default:
       return state
   }
 }
 
-function subjectsByfetching(state = {}, action) {
-  switch (action.type) {
-    case REQUEST_SUBJECTS:
-    case RECEIVE_SUBJECTS:
-      return Object.assign({}, state, {
-        [action.subreddit]: subjects(state[action.subreddit], action)
-      })
-    default:
-      return state
-  }
-}
 
 const rootReducer = combineReducers({
   dept : dept,
-  subjects : [],
   subjectsByfetching
 //  subject : subject,
 });

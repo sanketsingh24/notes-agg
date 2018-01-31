@@ -67,28 +67,28 @@ server.get('/', function (req, res) {
 
 });
 
-server.get('/dept/:deptId', function (req, res) {
-  api.fetchDept(req.params.deptId)
-    .then(resp => 
-      api.fetchSubjects(resp.course_ids)
-        .then(resp => {
-          let initialState = resp;
-          const context = {};
-          const store = configureStore(initialState);
-          const html = ReactDOMServer.renderToString(
-            <Provider store={store}>
-              <StaticRouter context = {context}>
-                <App />
-              </StaticRouter>
-            </Provider>,
-          );
+// server.get('/dept/:deptId', function (req, res) {
+//   api.fetchDept(req.params.deptId)
+//     .then(resp => 
+//       api.fetchSubjects(resp.course_ids)
+//         .then(resp => {
+//           let initialState = resp;
+//           const context = {};
+//           const store = configureStore(initialState);
+//           const html = ReactDOMServer.renderToString(
+//             <Provider store={store}>
+//               <StaticRouter context = {context}>
+//                 <App />
+//               </StaticRouter>
+//             </Provider>,
+//           );
 
-          const preloadedstate= store.getState();
+//           const preloadedstate= store.getState();
 
-          res.send(fullPage(html,preloadedstate))
-        })
-    )
-});
+//           res.send(fullPage(html,preloadedstate))
+//         })
+//     )
+// });
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));

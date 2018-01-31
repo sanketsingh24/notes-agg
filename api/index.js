@@ -40,7 +40,7 @@ router.get('/subjects/:subjectIds', (req, res) => {
     .toArray(function(err, subjects) {
       assert.equal(err, null);
 
-      res.send({subjects})
+      res.send(subjects)
     });
 });
 
