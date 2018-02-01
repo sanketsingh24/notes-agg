@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { fetchSubjectsIfNeeded } from "../../actions/action";
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
-import Tabs from 'muicss/lib/react/tabs';
-import Tab from 'muicss/lib/react/tab';
 
 export default class Semcourses extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
@@ -18,6 +16,7 @@ export default class Semcourses extends Component {
     dispatch(fetchSubjectsIfNeeded(ID, dept[ID].course_ids));
   }
 
+
   // look(courseId, i) {
   //   let semno = courseId.toString()[2];
   //   return(
@@ -26,12 +25,23 @@ export default class Semcourses extends Component {
   //         </Tab>
   //   );
   // }
+  book () {
+    if(typeof this.props.subjects == 'undefined') {
+      console.log("NO sub");
+      return (<p> NO </p>);
+    }
+    console.log("Subs here")
+    return (<p> {this.props.subjects.map( (subject) => 
+      <div>{subject.course_name}</div>
+     )} 
+    </p>);
+  }
 
   render(){
     return(
       <div>
         <Header message='List of Courses' />
-
+        {this.book()}
       </div>
     );
   }
@@ -39,4 +49,5 @@ export default class Semcourses extends Component {
 
 /**        <Tabs className="courses">
           {this.props.subjects.course_ids.map(this.look.bind(this))}
-        </Tabs> */
+        </Tabs>
+                {this.book(this.props.isFetching)} */
