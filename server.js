@@ -14,7 +14,7 @@ import routes from './src/routes/routes';
 
 const server = express();
 
-function fullPage(html,preloadedstate) {
+function fullPage(html, preloadedstate) {
   return (
     `<!doctype html>
     <html lang="en">

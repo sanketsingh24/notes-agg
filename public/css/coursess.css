@@ -1,3 +1,73 @@
-.courses {
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 40px;
 }
+
+.tabs label {
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background: #90CAF9;
+  font-weight: bold;
+  transition: background ease 0.2s;
+}
+
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+}
+
+.tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+}
+
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+.tabs summary::-webkit-details-marker {
+  color: #00ACF3;
+  font-size: 125%;
+  margin-right: 2px;
+ }
+ .tabs summary:focus {
+   outline-style: none;
+ }
+ .tabs article > details > summary {
+   font-size: 28px;
+   margin-top: 16px;
+ }
+ .tabs details > p {
+   margin-left: 24px;
+ }
+ .tabs details details {
+   margin-left: 36px;
+ }
+ .tabs details details summary {
+   font-size: 16px;
+ }
+ 

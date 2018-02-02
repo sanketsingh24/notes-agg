@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchSubjectsIfNeeded } from "../../actions/action";
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
+import Tab from '../Tabs/Tabs';
 
 export default class Semcourses extends Component {
   constructor(props) {
@@ -27,21 +28,22 @@ export default class Semcourses extends Component {
   // }
   book () {
     if(typeof this.props.subjects == 'undefined') {
-      console.log("NO sub");
-      return (<p> NO </p>);
+      return document.getElementById("root").style.opacity="0.2";
     }
-    console.log("Subs here")
-    return (<p> {this.props.subjects.map( (subject) => 
-      <div>{subject.course_name}</div>
-     )} 
-    </p>);
+    document.getElementById("root").style.opacity="1";
+    return (<div className ="tabs">{this.props.subjects.map( (subject,i) => {
+      let semno = subject.sem_no;
+      return (<Tab key={i} id={i} label={`Semester ${semno}`}  {...subject}  />);
+    })}</div>);
   }
 
   render(){
     return(
       <div>
         <Header message='List of Courses' />
-        {this.book()}
+
+          {this.book()}
+        
       </div>
     );
   }
