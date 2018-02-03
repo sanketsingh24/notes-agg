@@ -15,7 +15,7 @@ export default class AddDept extends Component {
                     <br/> Online link : 
                 </p>
                 <p>Add an Online Course
-                    <br/> Online link : <input type="text" placeholder="Enter course's name" />
+                    <br/> Online link : <input type="text" placeholder="Enter course's link" />
                 </p>
                 <p>Add a Powerpoint Presentation
                     <br/> Topic : <input type="text" placeholder="Enter Presentation's topic" />
@@ -27,9 +27,9 @@ export default class AddDept extends Component {
                     <br/> Online link : 
                 </p>
                 <p>Add a Professor's Notes
-                    <br/> Professor : <input type="text" placeholder="Enter course's name" />
-                    <br/> Session : <input type="text" placeholder="Enter course's name" />
-                    <br/> Rating : <input type="text" placeholder="Enter course's name" />
+                    <br/> Professor : <input type="text" placeholder="Enter Professor's name" />
+                    <br/> Session : <input type="text" placeholder="Enter Session" />
+                    <br/> Rating : <input type="text" placeholder="Enter Rating" />
                     <br/> Upload Notes here : 
                     <br/> OR
                     <br/> Online link : 

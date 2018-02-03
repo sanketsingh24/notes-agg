@@ -57,8 +57,8 @@
  .tabs summary:focus {
    outline-style: none;
  }
- .tabs article > details > summary {
-   font-size: 28px;
+ .tabs details > summary {
+   font-size: 16px;
    margin-top: 16px;
  }
  .tabs details > p {
