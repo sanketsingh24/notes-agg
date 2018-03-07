@@ -12,18 +12,17 @@ function subjectsByfetching( state = {}, action) {
     case REQUEST_SUBJECTS:
       return Object.assign({}, state, {});
     case RECEIVE_SUBJECTS:
-      console.log(action.subjects);
       return {...state , subjects: action.subjects};
     default:
       return state
   }
 }
 
-
+let ref=[];
 const rootReducer = combineReducers({
   dept : dept,
-  subjectsByfetching
-//  subject : subject,
+  subject : subjectsByfetching,
+  //  subject : subject,
 });
 
 export default rootReducer;

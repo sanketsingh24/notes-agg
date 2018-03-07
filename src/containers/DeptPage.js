@@ -6,7 +6,8 @@ import axios from 'axios';
 
 function mapStateToProps(state) {
   return {
-    dept: state.dept
+    dept: state.dept,
+    ref: state.ref
   };
 }
 

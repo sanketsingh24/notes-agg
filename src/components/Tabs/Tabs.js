@@ -15,8 +15,8 @@ export default class Tabs extends Component {
                         <summary>{this.props.course_name}</summary>
                         <h4>Course Id: {this.props.course_id}</h4>
                         <details><summary>Books: </summary>
-                            {this.props.books.map(book => 
-                                <ul>
+                            {this.props.books.map((book,i) => 
+                                <ul key={i} >
                                     <li><a href={book.link} > {book.name}</a></li>
                                     <li>{book.rating} </li>
                                 </ul>

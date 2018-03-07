@@ -13,7 +13,6 @@ export default class Semcourses extends Component {
   componentDidMount() {
     const { dispatch, dept, match } = this.props;
     const ID = dept.findIndex(id => id.dept_id === match.params.deptId);
-    console.log(ID);
     dispatch(fetchSubjectsIfNeeded(ID, dept[ID].course_ids));
   }
 

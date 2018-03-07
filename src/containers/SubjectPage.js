@@ -7,8 +7,9 @@ function mapStateToProps(state) {
   const { deptId } = state;
   return {
     deptId,
-    subjects: state.subjectsByfetching.subjects,
-    dept : state.dept
+    dept : state.dept,
+    subject : state.subject,
+    subjects : state.subject.subjects
   }
 }
 
