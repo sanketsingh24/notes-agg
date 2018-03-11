@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import OnebitTabs from './OnebitTabs';
+import Expander from './Expander';
 export default class Tabs extends Component {
     constructor(props) {
         super(props)
@@ -11,7 +12,17 @@ export default class Tabs extends Component {
                 <input type="radio" name="tabs" id={this.props.id} />
                 <label htmlFor={this.props.id}>{this.props.label}</label>
                 <div className="tab">
-                    <details>    
+                <OnebitTabs 
+                    imge="#" 
+                    dept_name={this.props.course_name} />
+                <Expander />
+                </div>
+            </div>
+        );
+    }
+}
+
+/**<details>    
                         <summary>{this.props.course_name}</summary>
                         <h4>Course Id: {this.props.course_id}</h4>
                         <details><summary>Books: </summary>
@@ -21,10 +32,4 @@ export default class Tabs extends Component {
                                     <li>{book.rating} </li>
                                 </ul>
                             )}
-                        </details>
-                    </details>
-                </div>
-            </div>
-        );
-    }
-}
+                        </details> */

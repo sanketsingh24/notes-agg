@@ -51,7 +51,7 @@ server.get('/', function (req, res) {
 //      console.log(resp);
       const context = {};
       let initialState = resp; 
-      console.log(initialState);
+      //console.log(initialState);
       const store = configureStore(initialState);
       const html = ReactDOMServer.renderToString(
         <Provider store={store}>
@@ -78,7 +78,7 @@ server.get('/dept/:deptId', function (req, res) {
           subject = resp;
           let initialState = { dept , subject };
           const context = {};
-          console.log(initialState);
+          //console.log(initialState);
           const store = configureStore(initialState);
           const html = ReactDOMServer.renderToString(
             <Provider store={store}>

@@ -26,7 +26,7 @@ export default class Semcourses extends Component {
   //   );
   // }
   book () {
-    if(typeof this.props.subjects == 'undefined') {
+    if(typeof this.props.subjects == 'undefined' ) {
       return document.getElementById("root").style.opacity="0.2";
     }
     document.getElementById("root").style.opacity="1";
