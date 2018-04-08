@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { fetchSubjectsIfNeeded } from "../../actions/action";
 import Courses from '../courses/courses';
 import Header from '../Header/Header';
-import Tab from '../Tabs/Tabs';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 export default class Semcourses extends Component {
   constructor(props) {
@@ -25,24 +27,60 @@ export default class Semcourses extends Component {
   //         </Tab>
   //   );
   // }
+  
   book () {
     if(typeof this.props.subjects == 'undefined' ) {
       return document.getElementById("root").style.opacity="0.2";
     }
     document.getElementById("root").style.opacity="1";
-    return (<div className ="tabs">{this.props.subjects.map( (subject,i) => {
-      let semno = subject.sem_no;
-      return (<Tab key={i} id={i} label={`Semester ${semno}`}  {...subject}  />);
-    })}</div>);
+    return (
+      <MuiThemeProvider>
+        <div className="tabs">
+        <Tabs>
+        {this.props.subjects.map( (subject,i) => {
+          let semno = subject.sem_no;
+          return (
+            <Tab key={i} label={`Semester ${semno}`} value={i}>
+              <Card>
+                  <CardHeader
+                  title={this.props.subjects[i].course_name}
+                  subtitle={this.props.subjects[i].course_id}
+                  actAsExpander={true}
+                  showExpandableButton={true}
+                  />
+                  <CardText expandable={true}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                  </CardText>
+              </Card>
+              <Card>
+                  <CardHeader
+                  title={this.props.subjects[i].course_name}
+                  subtitle={this.props.subjects[i].course_id}
+                  actAsExpander={true}
+                  showExpandableButton={true}
+                  />
+                  <CardText expandable={true}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                  </CardText>
+              </Card>
+            </Tab>
+        )})}
+        </Tabs>
+        </div>
+      </MuiThemeProvider>);
   }
 
   render(){
     return(
       <div>
         <Header message='List of Courses' />
-
           {this.book()}
-        
       </div>
     );
   }
@@ -51,4 +89,7 @@ export default class Semcourses extends Component {
 /**        <Tabs className="courses">
           {this.props.subjects.course_ids.map(this.look.bind(this))}
         </Tabs>
-                {this.book(this.props.isFetching)} */
+                {this.book(this.props.isFetching)} 
+                
+                
+                 <Tab key={i} label={}  {...subject}  />*/
