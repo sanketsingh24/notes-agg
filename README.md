@@ -1,6 +1,20 @@
-# Notes-Aggregator
+## Notes-Aggregator
 
-## Steps to reproduce 
+## Purpose
+
+Tried to solve biggest problem of engineering colleges, collecting notes.
+
+## Tech Stack
+
+1. React
+2. Redux
+3. Node.js 
+
+## Problems
+
+Too many notes (literally)
+
+#### Steps to reproduce 
 
 1. Clone.
 
