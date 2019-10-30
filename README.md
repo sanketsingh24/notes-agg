@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Tried to solve biggest problem of engineering colleges, collecting notes.
+Tried to solve the problem of getting proper notes during exams.
 
 ## Tech Stack
 
